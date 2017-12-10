@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Scans within the base package of the application for @Components to 
+		configure as beans -->
+	<context:component-scan base-package="com.example.springdemo.service" />
+
+	<bean id="grandmother" class="com.example.springdemo.domain.Person">
+		<property name="firstName" value="Babcia" />
+		<property name="yob" value="1906" />
+	</bean>
+	<bean id="grandfather" class="com.example.springdemo.domain.Person">
+		<property name="firstName" value="Dziadek" />
+		<property name="yob" value="1916" />
+	</bean>
+	<bean id="mother" class="com.example.springdemo.domain.Person">
+		<property name="firstName" value="Mama" />
+		<property name="yob" value="1976" />
+	</bean>
+	<bean id="father" class="com.example.springdemo.domain.Person">
+		<property name="firstName" value="Tata" />
+		<property name="yob" value="1977" />
+	</bean>
+	<bean id="daughter" class="com.example.springdemo.domain.Person">
+		<property name="firstName" value="Corka" />
+		<property name="yob" value="1996" />
+	</bean>
+	<bean id="son" class="com.example.springdemo.domain.Person">
+		<property name="firstName" value="Syn" />
+		<property name="yob" value="1995" />
+	</bean>
+
+
+
+	<bean id="family" class="com.example.springdemo.domain.Family">
+		<constructor-arg ref="grandmother"/>
+		<constructor-arg ref="grandfather"/>
+		<constructor-arg ref="father"/>
+		<constructor-arg ref="mother"/>
+		<constructor-arg ref="daughter"/>
+		<constructor-arg ref="son"/>
+	</bean>
+
+
+</beans>
